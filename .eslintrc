@@ -1,0 +1,88 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx"]
+      }
+    }
+  },
+  "globals": {
+    "__DEV__": true
+  },
+  "overrides": [
+    {
+      "files": ["./pages/**", "./pages/api/**"],
+      "rules": {
+        "import/prefer-default-export": "error"
+      }
+    }
+  ],
+  "plugins": ["react", "react-hooks", "prettier", "@typescript-eslint"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/jsx-no-bind": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+    "react/function-component-definition": [
+      "error",
+      { "namedComponents": "arrow-function" }
+    ],
+
+    "no-use-before-define": "off",
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-alert": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": ["@features/*/*", "*/features/*/*", "**/features/*/*"],
+        "patterns": ["@features/*/*", "*/features/*/*", "**/features/*/*"]
+      }
+    ],
+
+    "camelcase": "off",
+
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "all",
+        "arrowParens": "avoid",
+        "endOfLine": "auto"
+      }
+    ],
+
+    "import/prefer-default-export": "off",
+    "import/extensions": [
+      "error",
+      "never",
+      { "ignorePackages": true, "pattern": { "svg": "ignorePackages" } }
+    ]
+  }
+}
